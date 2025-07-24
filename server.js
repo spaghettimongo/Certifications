@@ -1,15 +1,15 @@
 import express from 'express';
 import { MongoClient } from 'mongodb';
 import dotenv from 'dotenv';
-import cors from 'cors'; // ✅ Importato CORS
+import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
 dotenv.config();
-const app = express();
-const port = process.env.PORT || 3000;
 
-// ✅ Attiva CORS per tutte le origini (puoi limitarlo se vuoi)
+const app = express();
+const port = process.env.PORT || 3000; // ✅ corretta
+
 app.use(cors());
 
 const uri = process.env.MONGODB_URI;
@@ -21,10 +21,8 @@ const __dirname = path.dirname(__filename);
 
 const client = new MongoClient(uri);
 
-// Serve static frontend
 app.use(express.static(path.join(__dirname, 'public')));
 
-// API endpoint
 app.get('/data', async (req, res) => {
   try {
     await client.connect();
@@ -39,15 +37,10 @@ app.get('/data', async (req, res) => {
   }
 });
 
-// (opzionale) Route cortesia per /
 app.get('/', (req, res) => {
-  res.send('✅ API attiva. Endpoint: /data');
+  res.send('✅ API attiva. Vai su /data per i dati MongoDB.');
 });
 
 app.listen(port, () => {
-  console.log(`✅ Server avviato su http://localhost:${port}`);
-});
-
-app.listen(port, () => {
-  console.log(`✅ Server avviato su http://localhost:${port}`);
+  console.log(`✅ Server avviato sulla porta ${port}`);
 });
