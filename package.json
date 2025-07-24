@@ -1,7 +1,6 @@
 {
   "name": "mongodb-viewer-browser",
   "version": "1.0.0",
-  "description": "Visualizzatore dati MongoDB per frontend pubblico",
   "main": "server.js",
   "type": "module",
   "scripts": {
