@@ -1,12 +1,14 @@
 {
   "name": "mongodb-viewer-browser",
   "version": "1.0.0",
+  "description": "Visualizzatore dati MongoDB per frontend pubblico",
   "main": "server.js",
   "type": "module",
   "scripts": {
     "start": "node server.js"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "mongodb": "^6.5.0"
