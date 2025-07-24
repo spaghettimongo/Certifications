@@ -1,7 +1,7 @@
 import express from 'express';
 import { MongoClient } from 'mongodb';
 import dotenv from 'dotenv';
-import cors from 'cors'; // ✅ Importa CORS
+import cors from 'cors'; // ✅ Importa  CORS
 
 dotenv.config();
 
