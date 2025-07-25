@@ -27,7 +27,7 @@ app.get('/data', async (req, res) => {
   try {
     await client.connect();
     const collection = client.db(dbName).collection(collectionName);
-    const data = await collection.find({}).limit(100).toArray();
+    const data = await collection.find({}).toArray();
     res.json(data);
   } catch (err) {
     console.error(err);
